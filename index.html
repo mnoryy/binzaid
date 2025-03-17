@@ -15,42 +15,6 @@
     <input type="text" id="nameInput" placeholder="أدخل الاسم هنا">
     <button onclick="generateCard()">إضافة الاسم</button>
     <br>
-    <canvas id="greetingCanvas" style="max-width: 100%; height: auto;"></canvas>
+    <canvas id="greetingCanvas"></canvas>
     <br>
-    <button onclick="downloadCard()">تحميل الصورة</button>
-
-    <script>
-        const img = new Image();
-        img.src = 'greeting.png';  // استبدل هذا بمسار الصورة الفعلي
-        img.onload = () => {
-            const canvas = document.getElementById("greetingCanvas");
-            const ctx = canvas.getContext("2d");
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        };
-
-        function generateCard() {
-            const name = document.getElementById("nameInput").value;
-            if (!name) return;
-            const canvas = document.getElementById("greetingCanvas");
-            const ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // مسح الصورة السابقة
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            ctx.font = "bold 120px Arial";  // استخدام خط "Arial"
-            ctx.fillStyle = "black";
-            ctx.textAlign = "center";
-            const textHeight = 120;  // ارتفاع النص
-            ctx.fillText(name, canvas.width / 2, canvas.height / 2 + textHeight / 2); // تحديد الموقع بشكل أفضل
-        }
-
-        function downloadCard() {
-            const canvas = document.getElementById("greetingCanvas");
-            const link = document.createElement("a");
-            link.download = "greeting-card.png";
-            link.href = canvas.toDataURL("image/png");
-            link.click();
-        }
-    </script>
-</body>
-</html>
+    <button onclick="downloa
