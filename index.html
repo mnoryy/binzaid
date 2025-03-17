@@ -8,8 +8,6 @@
         body { text-align: center; font-family: Arial, sans-serif; }
         canvas { border: 1px solid #000; }
         input, button { margin-top: 10px; padding: 10px; font-size: 16px; }
-        /* إضافة الخط العربي من Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
     </style>
 </head>
 <body>
@@ -37,11 +35,13 @@
             if (!name) return;
             const canvas = document.getElementById("greetingCanvas");
             const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // مسح الصورة السابقة
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            ctx.font = "bold 120px Cairo";  // تغيير الخط إلى "Cairo"
+            ctx.font = "bold 120px Arial";  // استخدام خط "Arial"
             ctx.fillStyle = "black";
             ctx.textAlign = "center";
-            ctx.fillText(name, canvas.width / 2, canvas.height / 4); // تعديل الموقع حسب الصورة
+            const textHeight = 120;  // ارتفاع النص
+            ctx.fillText(name, canvas.width / 2, canvas.height / 2 + textHeight / 2); // تحديد الموقع بشكل أفضل
         }
 
         function downloadCard() {
