@@ -6,7 +6,13 @@
     <title>بطاقة تهنئة تفاعلية</title>
     <style>
         body { text-align: center; font-family: Arial, sans-serif; }
-        canvas { border: 1px solid #000; }
+        canvas { 
+            border: 1px solid #000; 
+            max-width: 50%;  /* تقليل العرض إلى 50% من الحجم الأصلي */
+            height: auto; /* الحفاظ على التناسب بدون فقدان أي جزء */
+            display: block;
+            margin: 0 auto;
+        }
         input, button { margin-top: 10px; padding: 10px; font-size: 16px; }
     </style>
 </head>
@@ -25,7 +31,7 @@
         img.onload = () => {
             const canvas = document.getElementById("greetingCanvas");
             const ctx = canvas.getContext("2d");
-            canvas.width = img.width;
+            canvas.width = img.width;  // الحفاظ على الأبعاد الأصلية
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
         };
@@ -39,7 +45,7 @@
             ctx.font = "bold 100px Arial";  // خط عريض بحجم 100px
             ctx.fillStyle = "black";
             ctx.textAlign = "center";
-            ctx.fillText(name, canvas.width / 2, 985); // إزاحة النص ليظهر على بعد ### بكسل من أعلى الصورة
+            ctx.fillText(name, canvas.width / 2, 985); // إزاحة النص ليظهر على بعد 985 بكسل من أعلى الصورة
         }
 
         function downloadCard() {
