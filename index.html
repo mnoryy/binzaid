@@ -36,10 +36,10 @@
             const canvas = document.getElementById("greetingCanvas");
             const ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0);
-            ctx.font = "bold 100px Arial";  // حجم الخط ونوعه
+            ctx.font = "bold 100px Arial";  // خط عريض بحجم 100px
             ctx.fillStyle = "black";
             ctx.textAlign = "center";
-            ctx.fillText(name, canvas.width / 2, 1000); // تحريك الاسم ليظهر على بعد 200 بكسل من أعلى الصورة
+            ctx.fillText(name, canvas.width / 2, 1000); // إزاحة النص ليظهر على بعد 1000 بكسل من أعلى الصورة
         }
 
         function downloadCard() {
