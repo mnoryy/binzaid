@@ -17,4 +17,38 @@
     <br>
     <canvas id="greetingCanvas"></canvas>
     <br>
-    <button onclick="downloa
+    <button onclick="downloadCard()">تحميل الصورة</button>
+
+    <script>
+        const img = new Image();
+        img.src = 'greeting.png';  // استبدل هذا بمسار الصورة الفعلي
+        img.onload = () => {
+            const canvas = document.getElementById("greetingCanvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+        };
+
+        function generateCard() {
+            const name = document.getElementById("nameInput").value;
+            if (!name) return;
+            const canvas = document.getElementById("greetingCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            ctx.font = "100px Arial";  // تكبير الخط إلى 100px
+            ctx.fillStyle = "black";
+            ctx.textAlign = "center";
+            ctx.fillText(name, canvas.width / 2, 200); // تحريك الاسم ليظهر على بعد 200 بكسل من أعلى الصورة
+        }
+
+        function downloadCard() {
+            const canvas = document.getElementById("greetingCanvas");
+            const link = document.createElement("a");
+            link.download = "greeting-card.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        }
+    </script>
+</body>
+</html>
