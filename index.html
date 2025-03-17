@@ -8,6 +8,8 @@
         body { text-align: center; font-family: Arial, sans-serif; }
         canvas { border: 1px solid #000; }
         input, button { margin-top: 10px; padding: 10px; font-size: 16px; }
+        /* إضافة الخط العربي من Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
     </style>
 </head>
 <body>
@@ -36,7 +38,7 @@
             const canvas = document.getElementById("greetingCanvas");
             const ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            ctx.font = "bold 120px AraHamahSahetAlassi";
+            ctx.font = "bold 120px Cairo";  // تغيير الخط إلى "Cairo"
             ctx.fillStyle = "black";
             ctx.textAlign = "center";
             ctx.fillText(name, canvas.width / 2, canvas.height + 500); // تعديل الموقع حسب الصورة
